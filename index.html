@@ -1,0 +1,199 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📋 Formulaire App VTC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-6">🚖 Formulaire VTC - Étape <span id="step-count">1</span>/4</h1>
+
+    <!-- Barre de progression -->
+    <div class="w-full bg-gray-300 h-2 rounded-full mb-6">
+      <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 25%;"></div>
+    </div>
+
+    <form id="vtc-form">
+
+      <!-- Étape 1 -->
+      <div class="step" data-step="1">
+        <section class="bg-white p-6 rounded-xl shadow">
+          <h2 class="text-xl font-semibold mb-4">🔧 Fonctionnalités - Côté Passager</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+        <label><input type="checkbox" name="features" value="inscription" class="mr-2"> Inscription / Connexion</label>
+        <label><input type="checkbox" name="features" value="reservation" class="mr-2"> Réservation immédiate ou planifiée</label>
+        <label><input type="checkbox" name="features" value="geoloc" class="mr-2"> Géolocalisation en temps réel</label>
+        <label><input type="checkbox" name="features" value="prix" class="mr-2"> Estimation du prix de la course</label>
+        <label><input type="checkbox" name="features" value="paiement" class="mr-2"> Paiement intégré</label>
+        <label><input type="checkbox" name="features" value="notation" class="mr-2"> Notation et Commentaires</label>
+        <label><input type="checkbox" name="features" value="historique" class="mr-2"> Historique des courses</label>
+        <label><input type="checkbox" name="features" value="support" class="mr-2"> Support client</label>
+        <label><input type="checkbox" name="features" value="support" class="mr-2"> Chat Direct</label>
+        <label><input type="checkbox" name="features" value="partage" class="mr-2"> Courses partagées</label>
+        <label><input type="checkbox" name="features" value="vehicule" class="mr-2"> Choix du véhicule</label>
+        <label><input type="checkbox" name="features" value="promo" class="mr-2"> Promotions / Réductions</label>
+
+          </div>
+          
+           <div class="mt-4">
+              <label class="block font-medium mb-2">Langues souhaitées :</label>
+              <input type="text" name="langues" placeholder="Ex : Français, Anglais, Espagnol..."
+                class="w-full p-2 border border-gray-300 rounded" />
+            </div>
+          
+          <label class="block font-medium mt-4">Notifications souhaitées :</label>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <label><input type="checkbox" name="notif" value="confirmation" class="mr-2"> Confirmation de course</label>
+        <label><input type="checkbox" name="notif" value="en_route" class="mr-2"> Chauffeur en route</label>
+        <label><input type="checkbox" name="notif" value="promo" class="mr-2"> Promotion en cours</label>
+      </div>
+          
+          
+        </section>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="step hidden" data-step="2">
+        <section class="bg-white p-6 rounded-xl shadow">
+          <h2 class="text-xl font-semibold mb-4">🚗 Fonctionnalités - Côté Chauffeur</h2>
+          
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label><input type="checkbox" name="driver_features" value="verification" class="mr-2"> Vérification des chauffeurs</label>
+        <label><input type="checkbox" name="driver_features" value="acceptation" class="mr-2"> Acceptation / Refus de course</label>
+        <label><input type="checkbox" name="driver_features" value="navigation" class="mr-2"> Navigation Google Maps / Waze</label>
+        <label><input type="checkbox" name="driver_features" value="gains" class="mr-2"> Relevé des gains</label>
+        <label><input type="checkbox" name="driver_features" value="historique" class="mr-2"> Historique des trajets</label>
+        <label><input type="checkbox" name="driver_features" value="notation" class="mr-2"> Notation par les passagers</label>
+        <label><input type="checkbox" name="driver_features" value="seuil" class="mr-2"> Note minimale obligatoire</label>
+       
+      </div>
+          
+        </section>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="step hidden" data-step="3">
+        <section class="bg-white p-6 rounded-xl shadow">
+          <h2 class="text-xl font-semibold mb-4">⚙️ Questions Opérationnelles</h2>       
+          
+      <label class="block font-medium mt-2">Niveau de contrôle souhaité :</label>
+      <textarea class="w-full p-2 border border-gray-300 rounded" rows="3" name="admin_control"
+        placeholder="Ex: gestion utilisateurs, chauffeurs, zones, remboursements..."></textarea>
+
+      <label class="block font-medium mt-4">Zones desservies au lancement :</label>
+      <input type="text" name="zones" class="w-full p-2 border border-gray-300 rounded" />
+
+      <label class="block font-medium mt-4">Modes de paiement souhaités :</label>
+      <input type="text" name="paiement_modes" placeholder="Ex: Carte, PayPal, Apple Pay..." class="w-full p-2 border border-gray-300 rounded" />
+          
+          <label class="block font-medium mt-4">Comment les chauffeurs seront-ils recrutés et intégrés ?</label>
+      <input type="text" name="recrutement" class="w-full p-2 border border-gray-300 rounded" />
+
+<label class="block font-medium mt-4">Souhaitez-vous un espace d'administration pour la gestion des documents légaux ?</label>
+      <input type="text" name="admin_document" class="w-full p-2 border border-gray-300 rounded" />
+          
+          <label class="block font-medium mt-4">Les chauffeurs seront-ils indépendants ou salariés ?</label>
+      <input type="text" name="statut_chauffeur" class="w-full p-2 border border-gray-300 rounded" />
+
+        </section>
+      </div>
+
+      <!-- Étape 4 -->
+      <div class="step hidden" data-step="4">
+        <section class="bg-white p-6 rounded-xl shadow">
+          <h2 class="text-xl font-semibold mb-4">🎨 Design & Expérience</h2>
+          <label class="block mb-2">Avez-vous une charte graphique ?</label>
+            <select name="charte" class="w-full p-2 border rounded">
+              <option value="clair">Oui</option>
+              <option value="sombre">Non</option>
+            </select>
+
+          <label class="block mb-2">Mode :</label>
+          <select name="mode" class="w-full p-2 border rounded">
+            <option value="clair">Clair</option>
+            <option value="sombre">Sombre</option>
+            <option value="les_deux">Les deux</option>
+          </select>
+          <label class="block font-medium mt-4">Avez-vous un design inspiré d’un concurrent ?</label>
+      <textarea type="text" name="inspiration" class="w-full p-2 border border-gray-300 rounded" rows="3" placeholder="Ex: https://mycar.fr, https://busby.com"></textarea>
+          
+          <label class="block font-medium mt-4">Votre adresse email:</label>
+      <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded" />
+
+  
+        </section>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex justify-between mt-6">
+        <button type="button" id="prevBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" disabled>Précédent</button>
+        <button type="button" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">Suivant</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    const steps = document.querySelectorAll('.step');
+    const stepCount = document.getElementById('step-count');
+    const progressBar = document.getElementById('progress-bar');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    function updateForm() {
+      steps.forEach(step => {
+        step.classList.toggle('hidden', parseInt(step.dataset.step) !== currentStep);
+      });
+      stepCount.textContent = currentStep;
+      progressBar.style.width = `${(currentStep / totalSteps) * 100}%`;
+
+      prevBtn.disabled = currentStep === 1;
+      nextBtn.textContent = currentStep === totalSteps ? "Soumettre" : "Suivant";
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateForm();
+      } else {
+        generatePDF();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateForm();
+      }
+    });
+
+    updateForm();
+
+    // Génération PDF avec jsPDF
+    function generatePDF() {
+      const form = document.getElementById('vtc-form');
+      const data = new FormData(form);
+      
+      let content = "Résumé du formulaire VTC :\n\n";
+
+      for (const [key, value] of data.entries()) {
+        content += `• ${key} : ${value}\n`;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text(content, 10, 10);
+      
+      const base64 = doc.output('datauristring');
+      //doc.save("formulaire_vtc.pdf");
+      console.log(base64)
+      alert("PDF généré !");
+    }
+  </script>
+</body>
+</html>
