@@ -1,0 +1,154 @@
+<style>
+  :root{
+    --bg:#f7f7f7;
+    --accent:#6b4fc6;
+    --muted:#8a8a8a;
+    --card-width:720px;
+  }
+  *{box-sizing:border-box}
+
+  .wedding-wrapper{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg,#ffffff 0%,#fbfbff 100%);
+    font-family:'Montserrat',sans-serif;
+    color:#222;
+    padding:40px;
+  }
+
+  .invitation{
+    width:100%;
+    max-width:var(--card-width);
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 12px 40px rgba(40,30,60,0.12);
+    position:relative;
+  }
+
+  .hero{
+    position:relative;
+    height:360px;
+    overflow:hidden;
+  }
+  .hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top;
+    filter:brightness(0.9) contrast(1.02);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:48%;
+    background:linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 100%);
+  }
+
+  .content{
+    padding:36px 48px 48px;
+    text-align:center;
+    position:relative;
+  }
+  .names{
+    font-family:'Great Vibes', cursive;
+    font-size:56px;
+    margin-top:-32px;
+  }
+  .amp{font-size:28px; display:block}
+  .subtitle{
+    font-family:'Playfair Display', serif;
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  .place{color:var(--muted); font-size:13px}
+  .date{font-weight:700; margin-top:18px}
+  .description{color:var(--muted); font-size:13px; margin-top:12px}
+
+  .flower{position:absolute; opacity:.95}
+  .flower.left-top{left:-12px; top:6px; width:120px}
+  .flower.right-top{right:-6px; top:8px; width:120px}
+  .flower.left-bottom{left:-6px; bottom:-6px; width:140px}
+  .flower.right-bottom{right:-6px; bottom:-6px; width:120px}
+
+  .rsvp-btn{
+    margin-top:20px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:2px solid var(--accent);
+    background:none;
+    color:var(--accent);
+    cursor:pointer;
+  }
+
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(8,6,12,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    visibility:hidden;
+    opacity:0;
+    transition:.2s;
+  }
+  .modal.open{visibility:visible; opacity:1}
+  .modal-card{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    width:320px;
+  }
+</style>
+
+<div class="wedding-wrapper">
+
+  <div class="invitation">
+    <div class="hero">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpT3VYOKz9mAKJ3bjMPMwj5DXFYYD1r6m5cI5-A0hykxAWM88-g860qKk&s=10">
+    </div>
+
+    <div class="content">
+      <div class="names">Michael <span class="amp">&amp;</span> Olivia</div>
+      <div class="subtitle">Wedding place</div>
+      <div class="place">Love Beach, Saint Lucia, Caribbean.</div>
+
+      <div class="date">Join marriage on <strong>26<sup>th</sup> March</strong></div>
+      <div class="description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </div>
+
+      <button class="rsvp-btn" id="openRsvp">RSVP / Plus d'infos</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <h3>RSVP</h3>
+      <input id="name" placeholder="Nom et prénom"><br><br>
+      <input id="phone" placeholder="Téléphone"><br><br>
+      <button id="close">Annuler</button>
+      <button id="submit">Envoyer</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const openBtn = document.getElementById('openRsvp');
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('close');
+  const submitBtn = document.getElementById('submit');
+
+  openBtn.onclick = () => modal.classList.add('open');
+  closeBtn.onclick = () => modal.classList.remove('open');
+
+  submitBtn.onclick = () => {
+    alert("Merci pour votre confirmation 💜");
+    modal.classList.remove('open');
+  };
+</script>
