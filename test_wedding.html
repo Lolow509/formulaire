@@ -14,6 +14,12 @@
       .then(response => response.text())
       .then(data => {
         document.getElementById("myPage").innerHTML = data;
+
+        // Charger le script wedding.js
+          const script = document.createElement("script");
+          script.src = "wedding.js";
+          document.body.appendChild(script);
+        
       })
       .catch(error => console.error("Erreur :", error));
   </script>
