@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index</title>
+</head>
+<body>
+
+  <div id="myPage"></div>
+
+  <script>
+    fetch("wedding.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("myPage").innerHTML = data;
+      })
+      .catch(error => console.error("Erreur :", error));
+  </script>
+
+</body>
+</html>
