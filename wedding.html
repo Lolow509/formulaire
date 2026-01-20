@@ -122,7 +122,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       </div>
 
-      <button class="rsvp-btn" id="openRsvp">RSVP / Plus d'infos</button>
+      <button class="rsvp-btn" id="openRsvp" onclick="openASVP()">RSVP / Plus d'infos</button>
     </div>
   </div>
 
@@ -131,8 +131,8 @@
       <h3>RSVP</h3>
       <input id="name" placeholder="Nom et prénom"><br><br>
       <input id="phone" placeholder="Téléphone"><br><br>
-      <button id="close">Annuler</button>
-      <button id="submit">Envoyer</button>
+      <button id="close" onclick="closeModal()">Annuler</button>
+      <button id="submit" onclick="submitBtn()">Envoyer</button>
     </div>
   </div>
 
@@ -144,11 +144,23 @@
   const closeBtn = document.getElementById('close');
   const submitBtn = document.getElementById('submit');
 
-  openBtn.onclick = () => modal.classList.add('open');
-  closeBtn.onclick = () => modal.classList.remove('open');
 
-  submitBtn.onclick = () => {
+  function openASVP(){
+    modal.classList.add('open')
+  }
+
+  function closeModal(){
+    modal.classList.remove('open')
+  }
+
+
+  function submitBtn(){
     alert("Merci pour votre confirmation 💜");
     modal.classList.remove('open');
-  };
+  }
+
+  function openASVP(){
+    modal.classList.add('open')
+  }
+
 </script>
