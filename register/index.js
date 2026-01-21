@@ -33,3 +33,36 @@
     console.log("Données envoyées :", data);
     alert("Formulaire validé ✅ (voir console)");
   });
+
+
+
+
+
+photo_select = document.getElementById("photo_select");
+let get_photo_select
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+    reader.readAsDataURL(file);
+  });
+}
+
+
+photo_select.addEventListener("change", function () {
+  fileToBase64(photo_select.files[0]).then(base64 => {
+   get_photo_select = base64
+    // console.log(base64);
+  });
+  
+})
+
+
+
+
+
+
+
+
