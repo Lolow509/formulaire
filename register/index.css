@@ -1,0 +1,111 @@
+  body{
+    font-family:Montserrat,sans-serif;
+    background:#f5f6fa;
+    padding:40px;
+    
+  }
+  .form-container{
+    max-width:800px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+  }
+  h2{margin-bottom:20px}
+  .group{margin-bottom:16px;  min-height: 0;}
+  label{font-weight:600; display:block; margin-bottom:6px}
+  input, select{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+  }
+
+  /* MODELES */
+.models{
+  width: 100%;             /* largeur totale disponible */
+  height: 120px;           /* hauteur fixe */
+  border: 2px solid #6b4fc6;
+  padding: 10px;
+
+  display: flex;           /* aligne les items horizontalement */
+  gap: 10px;               /* espace entre les items */
+
+  overflow-y: auto;        /* scroll horizontal */
+  overflow-x: hidden;      /* pas de scroll vertical */
+}
+
+  
+ 
+.selected{
+    border-color:#6b4fc6;
+    border:solid;
+    height:145px;
+  }
+
+  /* CHECKBOX */
+  .checkbox-group{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:8px;
+  }
+
+  button{
+    margin-top:20px;
+    padding:12px;
+    width:100%;
+    border:none;
+    background:#6b4fc6;
+    color:white;
+    font-weight:600;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  
+  label{
+    display: inline-flex;
+  align-items: center;   /* alignement vertical */
+  gap: 10px;              /* espace entre checkbox et texte */
+  cursor: pointer;
+  }
+
+
+
+.scroll-container-horizontal {
+  width: 100%;             /* largeur totale disponible */
+  height: 150px;           /* hauteur fixe */
+  /*border: 2px solid #6b4fc6;*/
+  padding: 10px;
+
+  display: flex!important;           /* aligne les items horizontalement */
+  gap: 10px;               /* espace entre les items */
+
+  overflow-x: auto;        /* scroll horizontal */
+  overflow-y: hidden;      /* pas de scroll vertical */
+  background: #f5f6fa;
+  text-align:center;
+   scrollbar-width: thin;
+  scrollbar-color: #6b4fc6 #eee;
+}
+
+.scroll-container-horizontal::-webkit-scrollbar{
+  width: 6px;
+}
+
+.scroll-container-horizontal::-webkit-scrollbar{
+  width: 6px;
+}
+.scroll-container-horizontal::-webkit-scrollbar-thumb{
+  background: #6b4fc6;
+  border-radius: 10px;
+}
+.scroll-container-horizontal::-webkit-scrollbar-track{
+  background: #eee;
+}
+
+.model img{
+  width:160px;
+  height:120px;
+  object-fit:cover;
+}
